@@ -17,8 +17,8 @@ SCORE_PATH = CURRENT_DIR / "ronaldo_score.gif"
 def run():
     # Open and read local gif file
     with SCORE_PATH.open("rb") as file:
-    score = base64.b64encode(file.read()).decode("utf-8")
-    file_.close()
+        score = base64.b64encode(file.read()).decode("utf-8")
+        file_.close()
 
     st.title("Shooting Prediction")
     # Display local GIF via markdown
