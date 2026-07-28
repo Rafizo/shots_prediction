@@ -3,5 +3,4 @@ pandas
 matplotlib
 seaborn
 joblib
-base64
 plotly
