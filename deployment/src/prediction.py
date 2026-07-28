@@ -62,7 +62,6 @@ def run():
 
     if submitted:
         st.write("## Shot Profile:", data_inf)
-        
 
         pred = best_model.predict(data_inf)
 
