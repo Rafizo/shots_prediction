@@ -3,14 +3,21 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
-from PIL import Image
 import base64
+from pathlib import Path
+
+CURRENT_DIR = Path(__file__).resolve().parent
+
+SCORE_PATH = CURRENT_DIR / "ronaldo_score.gif"
+
+
+
+
 
 def run():
     # Open and read local gif file
-    file_ = open('ronaldo_score.gif', "rb")
-    contents = file_.read()
-    data_url = base64.b64encode(contents).decode("utf-8")
+    with SCORE_PATH.open("rb") as file:
+    score = base64.b64encode(file.read()).decode("utf-8")
     file_.close()
 
     st.title("Shooting Prediction")
