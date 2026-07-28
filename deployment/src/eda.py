@@ -11,13 +11,12 @@ SCORE_PATH = CURRENT_DIR / "ronaldo_score.gif"
 CURRENT_DIR = Path(__file__).resolve().parent
 CSV_PATH = CURRENT_DIR / "P1M2_Muhammad_Rafi_Addien.csv"
 
-# Open and read local gif file
-with SCORE_PATH.open("rb") as file:
-    score = base64.b64encode(file.read()).decode("utf-8")
-        
 def run():
     
     st.title("Shooting Prediction")
+    # Open and read local gif file
+    with SCORE_PATH.open("rb") as file:
+        score = base64.b64encode(file.read()).decode("utf-8")
     # Display local GIF via markdown
     st.markdown(
         f'<img src="data:image/gif;base64,{score}" alt="gif">',
