@@ -22,7 +22,7 @@ def run():
         f'<img src="data:image/gif;base64,{score}" alt="gif">',
         unsafe_allow_html=True,)
 
-    df = pd.read_csv("P1M2_Muhammad_Rafi_Addien.csv")
+    df = pd.read_csv(CSV_PATH)
     st.dataframe(df)
 
     shot_rank = df.groupby("player").count().sort_values(by='is_goal',
