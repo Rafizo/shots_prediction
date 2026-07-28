@@ -2,8 +2,16 @@ import joblib
 import streamlit as st
 import pandas as pd
 import base64
+from pathlib import Path
+import joblib
 
-best_model = joblib.load('best_model.joblib')
+MODEL_PATH = Path(__file__).resolve().parent / "best_model.joblib"
+
+@st.cache_resource
+def load_model():
+    return joblib.load(MODEL_PATH)
+
+best_model = load_model()
 
 def run():
 
