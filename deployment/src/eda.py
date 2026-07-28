@@ -8,6 +8,8 @@ from pathlib import Path
 
 CURRENT_DIR = Path(__file__).resolve().parent
 SCORE_PATH = CURRENT_DIR / "ronaldo_score.gif"
+CURRENT_DIR = Path(__file__).resolve().parent
+CSV_PATH = CURRENT_DIR / "P1M2_Muhammad_Rafi_Addien.csv"
 
 def run():
     # Open and read local gif file
