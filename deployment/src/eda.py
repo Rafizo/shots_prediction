@@ -7,9 +7,7 @@ import base64
 from pathlib import Path
 
 CURRENT_DIR = Path(__file__).resolve().parent
-
 SCORE_PATH = CURRENT_DIR / "ronaldo_score.gif"
-
 
 def run():
     # Open and read local gif file
