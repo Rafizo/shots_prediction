@@ -17,7 +17,7 @@ def run():
     st.title("Shooting Prediction")
     # Display local GIF via markdown
     st.markdown(
-        f'<img src="data:image/gif;base64,{data_url}" alt="gif">',
+        f'<img src="data:image/gif;base64,{score}" alt="gif">',
         unsafe_allow_html=True,)
 
     df = pd.read_csv("P1M2_Muhammad_Rafi_Addien.csv")
