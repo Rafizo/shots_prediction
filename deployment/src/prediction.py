@@ -7,10 +7,14 @@ import joblib
 import imblearn
 
 MODEL_PATH = Path(__file__).resolve().parent / "best_model.joblib"
-
 @st.cache_resource
 def load_model():
     return joblib.load(MODEL_PATH)
+
+CURRENT_DIR = Path(__file__).resolve().parent
+SIU_PATH = CURRENT_DIR / "ronaldo_siu.gif"
+SAD_PATH = CURRENT_DIR / "sad-ronaldo.gif"
+
 
 best_model = load_model()
 
@@ -53,14 +57,11 @@ def run():
     data_inf = pd.DataFrame([data_inf])
 
     # Open and read local gif file
-    file_ = open('ronaldo_siu.gif', "rb")
-    contents = file_.read()
-    siu = base64.b64encode(contents).decode("utf-8")
-    file_.close()
-    file_ = open('sad-ronaldo.gif', "rb")
-    contents = file_.read()
-    sad = base64.b64encode(contents).decode("utf-8")
-    file_.close()
+    with SIU_PATH.open("rb") as file:
+        siu = base64.b64encode(file.read()).decode("utf-8")
+
+    with SAD_PATH.open("rb") as file:
+        sad = base64.b64encode(file.read()).decode("utf-8")
 
     if submitted:
         st.write("## Shot Profile:", data_inf)
