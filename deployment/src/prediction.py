@@ -10,13 +10,18 @@ MODEL_PATH = Path(__file__).resolve().parent / "best_model.joblib"
 @st.cache_resource
 def load_model():
     return joblib.load(MODEL_PATH)
+best_model = load_model()
 
 CURRENT_DIR = Path(__file__).resolve().parent
 SIU_PATH = CURRENT_DIR / "ronaldo_siu.gif"
 SAD_PATH = CURRENT_DIR / "sad-ronaldo.gif"
 
+# Open and read local gif file
+with SIU_PATH.open("rb") as file:
+    siu = base64.b64encode(file.read()).decode("utf-8")
 
-best_model = load_model()
+with SAD_PATH.open("rb") as file:
+    sad = base64.b64encode(file.read()).decode("utf-8")
 
 def run():
 
@@ -39,7 +44,6 @@ def run():
       submitted = st.form_submit_button("Predict")
 
 
-
     data_inf = {
             "competition_name": competition
             ,"season_name": season
@@ -55,13 +59,6 @@ def run():
             }
 
     data_inf = pd.DataFrame([data_inf])
-
-    # Open and read local gif file
-    with SIU_PATH.open("rb") as file:
-        siu = base64.b64encode(file.read()).decode("utf-8")
-
-    with SAD_PATH.open("rb") as file:
-        sad = base64.b64encode(file.read()).decode("utf-8")
 
     if submitted:
         st.write("## Shot Profile:", data_inf)
