@@ -11,11 +11,12 @@ SCORE_PATH = CURRENT_DIR / "ronaldo_score.gif"
 CURRENT_DIR = Path(__file__).resolve().parent
 CSV_PATH = CURRENT_DIR / "P1M2_Muhammad_Rafi_Addien.csv"
 
+# Open and read local gif file
+with SCORE_PATH.open("rb") as file:
+    score = base64.b64encode(file.read()).decode("utf-8")
+        
 def run():
-    # Open and read local gif file
-    with SCORE_PATH.open("rb") as file:
-        score = base64.b64encode(file.read()).decode("utf-8")
-
+    
     st.title("Shooting Prediction")
     # Display local GIF via markdown
     st.markdown(
@@ -31,8 +32,6 @@ def run():
 
     goals = df[df["is_goal"] == 1]
 
-
-
     option1 = st.selectbox(
         "Select Top 5",
         ("Top 5 Most Shots", "Top 5 Most Goals"))
@@ -42,14 +41,11 @@ def run():
     if option1 == "Top 5 Most Goals":
         st.dataframe(goals.groupby("player").count().sort_values(by='is_goal', 
             ascending=False).head()[["is_goal"]].rename(columns={"is_goal":"goals"}))
-    
-
 
     def display():
         fig.update_layout(width=700,height=500,margin=dict(l=20, r=20, t=60, b=20))
         fig.update_traces(automargin=True, textinfo='percent+label')
         st.plotly_chart(fig, width='stretch', theme="streamlit")
-
 
     option = st.selectbox(
     "Select Pie Chart",
@@ -72,8 +68,6 @@ def run():
         df_counts.reset_index(inplace=True)
         fig = px.pie(df_counts, values='count', names='is_goal', title='Goal')
         display()
-
-
 
     fig, ax1 = plt.subplots(figsize=(8, 5))
     sns.boxplot(data=df, x="is_goal", y="distance_to_goal")
