@@ -4,6 +4,7 @@ import pandas as pd
 import base64
 from pathlib import Path
 import joblib
+import imblearn
 
 MODEL_PATH = Path(__file__).resolve().parent / "best_model.joblib"
 
