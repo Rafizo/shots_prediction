@@ -16,15 +16,15 @@ CURRENT_DIR = Path(__file__).resolve().parent
 SIU_PATH = CURRENT_DIR / "ronaldo_siu.gif"
 SAD_PATH = CURRENT_DIR / "sad-ronaldo.gif"
 
-# Open and read local gif file
-with SIU_PATH.open("rb") as file:
-    siu = base64.b64encode(file.read()).decode("utf-8")
 
-with SAD_PATH.open("rb") as file:
-    sad = base64.b64encode(file.read()).decode("utf-8")
 
 def run():
-
+    # Open and read local gif file
+    with SIU_PATH.open("rb") as file:
+        siu = base64.b64encode(file.read()).decode("utf-8")
+    with SAD_PATH.open("rb") as file:
+        sad = base64.b64encode(file.read()).decode("utf-8")
+        
     with st.form("shooting"):
       
       competition = st.text_input("Competition Name: ", value = "    ")
