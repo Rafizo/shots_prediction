@@ -69,7 +69,7 @@ def run():
 
         #display
         st.write("## Goal Probability :", int(pred_proba[1]))
-        st.write("## Is goal :", int(pred[0]))
+        st.write("## Is goal? :", int(pred[0]))
 
         if int(pred[0]) == 1:
           st.markdown(
