@@ -22,6 +22,8 @@ def run():
         f'<img src="data:image/gif;base64,{score}" alt="gif">',
         unsafe_allow_html=True,)
     
+    st.space(size="small")
+    
     st.text("\n\n\nShot Attempt Dataset From year 1958 to 2025")
     df = pd.read_csv(CSV_PATH)
     st.dataframe(df)
