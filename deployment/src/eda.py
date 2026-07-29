@@ -77,7 +77,7 @@ def run():
     plt.title("Distance to Goal and Goal Outcome")
     plt.xlabel('is_goal')
     plt.ylabel('distance_to_goal')
-    st.pyplot(fig)
+    display()
 
 if __name__ == "__main__":
     run()
