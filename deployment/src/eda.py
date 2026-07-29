@@ -73,10 +73,17 @@ def run():
     ("Distance to Goal", "Angle to Goal"))
 
     fig, ax1 = plt.subplots(figsize=(8, 5))
-    sns.boxplot(data=df, x="is_goal", y="distance_to_goal")
-    plt.title("Distance to Goal and Goal Outcome")
-    plt.xlabel('is_goal')
-    plt.ylabel('distance_to_goal')
+    if option1 == "Distance to Goal":
+        sns.boxplot(data=df, x="is_goal", y="distance_to_goal")
+        plt.title("Distance to Goal and Goal Outcome")
+        plt.xlabel('is_goal')
+        plt.ylabel('distance_to_goal')
+        
+    if option1 == "Angle to Goal":
+        sns.boxplot(data=df, x="is_goal", y="angle_to_goal")
+        plt.title("Angle to Goal and Goal Outcome")
+        plt.xlabel('is_goal')
+        plt.ylabel('angle_to_goal')
     st.pyplot(fig)
 
 if __name__ == "__main__":
