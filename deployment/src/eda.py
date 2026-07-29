@@ -34,6 +34,8 @@ def run():
 
     goals = df[df["is_goal"] == 1]
 
+    st.space(size="small")
+
     option1 = st.selectbox(
         "Select Top 5",
         ("Top 5 Most Shots", "Top 5 Most Goals"))
@@ -48,6 +50,8 @@ def run():
         fig.update_layout(width=700,height=500,margin=dict(l=20, r=20, t=60, b=20))
         fig.update_traces(automargin=True, textinfo='percent+label')
         st.plotly_chart(fig, width='stretch', theme="streamlit")
+
+    st.space(size="small")
 
     option = st.selectbox(
     "Select Pie Chart",
@@ -71,18 +75,20 @@ def run():
         fig = px.pie(df_counts, values='count', names='is_goal', title='Goal')
         display()
 
-    option1 = st.selectbox(
+    st.space(size="small")
+
+    option2 = st.selectbox(
     "Select Box Plot",
     ("Distance to Goal", "Angle to Goal"))
 
     fig, ax1 = plt.subplots(figsize=(8, 5))
-    if option1 == "Distance to Goal":
+    if option2 == "Distance to Goal":
         sns.boxplot(data=df, x="is_goal", y="distance_to_goal")
         plt.title("Distance to Goal and Goal Outcome")
         plt.xlabel('is_goal')
         plt.ylabel('distance_to_goal')
         
-    if option1 == "Angle to Goal":
+    if option2 == "Angle to Goal":
         sns.boxplot(data=df, x="is_goal", y="angle_to_goal")
         plt.title("Angle to Goal and Goal Outcome")
         plt.xlabel('is_goal')
