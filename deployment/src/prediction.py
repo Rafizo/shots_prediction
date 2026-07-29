@@ -68,7 +68,7 @@ def run():
         pred_proba = best_model.predict_proba(data_inf)
 
         #display
-        st.write("## Goal Probability :", int(pred_proba[1]))
+        st.write("## Goal Probability :", pred_proba))
         st.write("## Is goal? :", int(pred[0]))
 
         if int(pred[0]) == 1:
