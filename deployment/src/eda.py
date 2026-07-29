@@ -21,7 +21,8 @@ def run():
     st.markdown(
         f'<img src="data:image/gif;base64,{score}" alt="gif">',
         unsafe_allow_html=True,)
-    st.write("Shot Attempt Dataset From year 1958 to 2025")
+    
+    st.write("\n\n\nShot Attempt Dataset From year 1958 to 2025")
     df = pd.read_csv(CSV_PATH)
     st.dataframe(df)
 
