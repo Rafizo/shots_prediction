@@ -72,12 +72,12 @@ def run():
     "Select Box Plot",
     ("Distance to Goal", "Angle to Goal"))
 
-    #fig, ax1 = plt.subplots(figsize=(8, 5))
+    fig, ax1 = plt.subplots(figsize=(8, 5))
     sns.boxplot(data=df, x="is_goal", y="distance_to_goal")
     plt.title("Distance to Goal and Goal Outcome")
     plt.xlabel('is_goal')
     plt.ylabel('distance_to_goal')
-    display()
+    st.pyplot(fig)
 
 if __name__ == "__main__":
     run()
