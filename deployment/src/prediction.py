@@ -65,8 +65,10 @@ def run():
 
         pred = best_model.predict(data_inf)
 
+        pred_proba = best_model.predict_proba(data_inf)
+
         #display
-        st.write("## Is goal :", int(pred[0]))
+        st.write("## Is goal :", int(pred[0]), pred_proba)
 
         if int(pred[0]) == 1:
           st.markdown(
