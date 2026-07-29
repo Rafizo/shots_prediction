@@ -68,8 +68,12 @@ def run():
         fig = px.pie(df_counts, values='count', names='is_goal', title='Goal')
         display()
 
-    fig, ax1 = plt.subplots(figsize=(8, 5))
-    sns.boxplot(data=df, x="is_goal", y="distance_to_goal")
+    option = st.selectbox(
+    "Select Box Plot",
+    ("Goal Shots", "Shots Outcome", "Goal"))
+
+    #fig, ax1 = plt.subplots(figsize=(8, 5))
+    fig = sns.boxplot(data=df, x="is_goal", y="distance_to_goal")
     plt.title("Distance to Goal and Goal Outcome")
     plt.xlabel('is_goal')
     plt.ylabel('distance_to_goal')
