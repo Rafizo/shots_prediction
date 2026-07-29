@@ -14,6 +14,7 @@ CSV_PATH = CURRENT_DIR / "P1M2_Muhammad_Rafi_Addien.csv"
 def run():
     
     st.title("Shooting Prediction")
+    st.text("By Rafi Dino")
     # Open and read local gif file
     with SCORE_PATH.open("rb") as file:
         score = base64.b64encode(file.read()).decode("utf-8")
